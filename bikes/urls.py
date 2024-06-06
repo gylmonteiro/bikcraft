@@ -3,6 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='pagina-inicial'),
-    path('produtos/', views.produtos, name='lista-produtos')
+    path('cadastrar/', views.cadastrar, name='cadastra-bike')
 ]
-# Este arquivo serve para ser responsável pelos endereços de bikes

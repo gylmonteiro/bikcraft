@@ -1,0 +1,8 @@
+.container-produtos {
+    display: flex;
+    background: red;
+}
+
+.foto {
+    max-width: 400px;
+}

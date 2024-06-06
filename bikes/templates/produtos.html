@@ -1,8 +1,23 @@
 {% extends "base/base.html" %}
+{% load static %}
+{% block head %}
+     <link rel="stylesheet" href="{% static "bikes/css/container_produtos.css" %}">
+{% endblock head %}
+
 
 {% block conteudo %}
-<h1> Essa página é somente para produtos</h1>
-{% include "formulario.html" %}
+<div class='container-produtos'>
+
+    {% for bike in bikes %}
+    
+    <div class='produto-item'>
+        <h2>{{bike.modelo}}</h2>
+        <img class='foto' src='{{bike.foto.url}}'/>
+        <p>{{bike.descricao}}</p>
+        <h3>Preço 39,50</h3>
+    <div>
+    
+    {% endfor %}
+
+</div>
 {% endblock conteudo %}
-
-

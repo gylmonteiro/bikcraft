@@ -3,15 +3,17 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "bikes/css/style.css" %}">
+    <link rel="stylesheet" href="{% static "base/css/style.css" %}">
+    {% block head %}{% endblock head %}
     <title>Bikcraft</title>
 </head>
 <body>
-    <img src="{% static "bikes/img/bikcraft.svg" %}" alt="Bikcraft">
+    <a href='{% url "pagina-inicial" %}'><img src="{% static "bikes/img/bikcraft.svg" %}" alt="Bikcraft"></a>
 
     <div class="menu">
         <a href="#">Sobre</a>
-        <a href="#">Produtos</a>
+        <a href="#">Listar Produtos</a>
+        <a href="{% url "cadastra-bike" %}"> Cadastrar Produtos </a>
         <a href="#">Lojas</a>
         <a href="#">Contato</a>
     </div>
