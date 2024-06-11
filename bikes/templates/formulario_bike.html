@@ -1,6 +1,12 @@
 {% extends "base/base.html" %}
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static "bikes/css/form_produtos.css" %}">
+{% endblock head %}
+
+
+
 {% block conteudo %}
 
     <form method='POST' enctype='multipart/form-data' action='{% url "cadastra-bike" %}'>

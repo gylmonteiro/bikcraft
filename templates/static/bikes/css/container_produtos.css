@@ -1,8 +1,27 @@
 .container-produtos {
-    display: flex;
-    background: red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
 }
 
+
+.produto-item{
+    background: #efefef;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+    padding: 20px 0px;
+    justify-items: center;
+    display: grid;
+}
+
+
 .foto {
-    max-width: 400px;
+   width: 150px;
+   height: 150px;
+   border-radius: 20px;
+}
+
+p {
+    text-align: center;
 }
