@@ -8,8 +8,8 @@
 
 
 {% block conteudo %}
-    <h2> Formulário de cadastro de Bikes </h2>
-    <form method='POST' enctype='multipart/form-data' action='{% url "cadastra-bike" %}'>
+    <h2> Formulário de cadastro de loja </h2>
+    <form method='POST' action='{% url "cadastra-loja" %}'>
         {% csrf_token %}
         {{form.as_p}}
 

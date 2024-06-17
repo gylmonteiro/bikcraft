@@ -10,3 +10,21 @@ class Bike(models.Model):
     def __str__(self):
         return self.modelo
 
+
+class Loja(models.Model):
+    nome = models.CharField(max_length=30, verbose_name='Nome')
+    produtos = models.ManyToManyField(Bike)
+    cnpj = models.CharField(max_length=25)
+    detalhes = models.TextField()
+
+    def __str__(self):
+        return self.nome
+
+class Vendedor(models.Model):
+    nome = models.CharField(max_length=30, verbose_name="Nome")
+    loja = models.ForeignKey(Loja, on_delete=models.CASCADE, verbose_name="Loja atuante")
+    cpf = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.nome
+    

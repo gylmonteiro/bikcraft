@@ -17,6 +17,11 @@
             
             <p>{{bike.descricao}}</p>
             <h3>R$ {{bike.preco}}</h3>
+            <ul>
+                {% for loja in bike.loja_set.all %}
+                <li> Loja: {{loja.nome}}</li>
+                {% endfor %}
+            </ul>
             
         </div>
     {% endfor %}

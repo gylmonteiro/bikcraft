@@ -14,16 +14,17 @@
         <a href="#">Sobre</a>
         <a href="{% url "listar-bikes" %}">Listar Produtos</a>
         <a href="{% url "cadastra-bike" %}"> Cadastrar Produtos </a>
-        <a href="#">Lojas</a>
+        <a href="{% url "listar-lojas" %}">Lojas</a>
+        <a href="{% url "lista-vendedores" %}">Vendedores</a>
         <a href="#">Contato</a>
     </div>
 
     {% block conteudo %}{% endblock conteudo %}
 
-    
-
     <div class="rodape">
         <p>Bikcraft. Alguns direitos reservados</p>
     </div>
+
+    {% block script %}{% endblock script %}
 </body>
 </html>
