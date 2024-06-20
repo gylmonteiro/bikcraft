@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{% block conteudo %}
+<form method='POST' action='{% url "cadastra-usuario" %}'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button> Cadastrar </button>
+</form>
+{% endblock conteudo %}
+

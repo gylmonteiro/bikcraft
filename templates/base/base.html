@@ -12,12 +12,16 @@
 
     <div class="menu">
         <a href="#">Sobre</a>
-        <a href="{% url "listar-bikes" %}">Listar Produtos</a>
-        <a href="{% url "cadastra-bike" %}"> Cadastrar Produtos </a>
+        <a href="{% url "listar-bikes" %}">Produtos</a>
+        {% comment %} <a href="{% url "cadastra-bike" %}"> Cadastrar Produtos </a> {% endcomment %}
         <a href="{% url "listar-lojas" %}">Lojas</a>
         <a href="{% url "lista-vendedores" %}">Vendedores</a>
         <a href="#">Contato</a>
+       {% comment %} Espaço de links alternados {% endcomment %}
     </div>
+
+    {% comment %} Espaço para mensagem de boa vinda ou necessidade de logar {% endcomment %}
+    
 
     {% block conteudo %}{% endblock conteudo %}
 

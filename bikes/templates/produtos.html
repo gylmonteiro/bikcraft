@@ -7,7 +7,16 @@
 
 {% block conteudo %}
 <div class='container-produtos'>
+    <div class="row">
+           
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <input type="text" class="form-control" id="search" placeholder="Pesquisar produtos...">
+            </div>
+        </div>
 
+        <a href='{% url "cadastra-bike" %}' class='btn btn-primary mt-3'>Cadastrar Produto</a>
     {% for bike in bikes %}
         <div class='produto-item'>
     
@@ -21,7 +30,7 @@
                 {% for loja in bike.loja_set.all %}
                 <li> Loja: {{loja.nome}}</li>
                 {% endfor %}
-            </ul>
+            </ul> 
             
         </div>
     {% endfor %}

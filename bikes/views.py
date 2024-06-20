@@ -27,14 +27,14 @@ def listar_bikes(request):
 
 
 def cadastrar_loja(request):
-    
+
     if request.method == 'POST':
         loja_form = LojaModelForm(request.POST)
 
         if loja_form.is_valid():
             loja_form.save()
 
-            return redirect('listar-lojas')
+            return redirect('listar-bikes')
 
     loja_form = LojaModelForm()
     return render(request, 'formulario_loja.html', {'form': loja_form} )
@@ -44,9 +44,10 @@ def listar_lojas(request):
     lojas = Loja.objects.all()
     return render(request, 'lojas.html', {'lojas': lojas})
 
+
 def detalha_loja(request, id):
     loja = get_object_or_404(Loja, pk=id)
-    return render (request, 'detalhe_loja.html', {'loja': loja})
+    return render(request, "detalhe_loja.html", {"loja": loja})
 
 
 def cadastrar_vendedor(request):
@@ -60,7 +61,7 @@ def cadastrar_vendedor(request):
 
     vendedor_form = VendedorModelForm()
     return render(request, 'formulario_vendedor.html', {'form': vendedor_form})
-    
+
 
 def listar_vendedores(request):
     vendedores = Vendedor.objects.all()

@@ -26,15 +26,15 @@
         <a href='{% url "cadastra-loja" %}' class='btn btn-primary mt-3'>Cadastrar loja</a>
         <div class="row mt-4" id="store-list">
             {% for loja in lojas %}
-            <a href='{% url "detalha-loja" loja.id%}'><div class="col-md-4">
+            <div class="col-md-4">
                 <div class="card mb-4">
-                    <div class="card-body">
+                    <a href='{% url "detalha-loja" loja.id%}'><div class="card-body">
                         <h5 class="card-title">{{loja.nome}}</h5>
                         <p class="card-text">{{loja.cnpj}}</p>
                         <p class="card-text">{{loja.detalhes}}</p>
-                    </div>
+                    </div></a>
                 </div>
-            </div></a>
+            </div>
             {% endfor %}
            
         </div>

@@ -22,7 +22,7 @@ class Loja(models.Model):
 
 class Vendedor(models.Model):
     nome = models.CharField(max_length=30, verbose_name="Nome")
-    loja = models.ForeignKey(Loja, on_delete=models.CASCADE, verbose_name="Loja atuante")
+    loja = models.ForeignKey(Loja, on_delete=models.CASCADE, verbose_name="Loja", related_name='vendedores')
     cpf = models.CharField(max_length=30)
     
     def __str__(self):
