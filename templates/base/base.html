@@ -13,25 +13,26 @@
     <div class="menu">
         <a href="#">Sobre</a>
         <a href="{% url "listar-bikes" %}">Produtos</a>
-        {% comment %} <a href="{% url "cadastra-bike" %}"> Cadastrar Produtos </a> {% endcomment %}
         <a href="{% url "listar-lojas" %}">Lojas</a>
         <a href="{% url "lista-vendedores" %}">Vendedores</a>
         <a href="#">Contato</a>
-        <a href='{% url "cadastra-usuario" %}'>Cadastar</a>
         {% if request.user.is_authenticated %}
-        <a href='{% url "sair" %}'>Sair</a>
+            <a href="{% url "sair" %}">Sair</a>    
+
         {% else %}
-        <a href='{% url "acessar" %}'>Entrar</a>
+            <a href="{% url "cadastra-usuario" %}">Cadastrar</a>
+            <a href="{% url "acessar" %}"> Entrar</a>
         {% endif %}
-       {% comment %} Espaço de links alternados {% endcomment %}
+       
     </div>
 
     {% comment %} Espaço para mensagem de boa vinda ou necessidade de logar {% endcomment %}
     {% if request.user.is_authenticated %}
     <h1>Seja bem vindo {{request.user.username}}</h1> 
     {% else %}
-    <h2> Você precisa entrar no sistema para acessar todas as funcionalidades</h2>
+    <h2> Você precisa logar para acessar todas as funcionalidades</h2>
     {% endif %}
+
     
 
     {% block conteudo %}{% endblock conteudo %}

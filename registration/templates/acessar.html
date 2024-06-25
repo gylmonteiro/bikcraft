@@ -4,9 +4,44 @@
 
 {% block conteudo %}
 <form method='POST' action='{% url "acessar" %}'>
+
+  <!--Erros que não são do campo específico mais sim do formulário geral-->
+
+  {% if form.non_field_errors %}
+  
+    <div class='error'>
+      {% for error in form.non_field_errors  %}
+      <p> {{error}}</p>
+      {% endfor %}
+    </div>
+  
+  {% endif %}
+
+
     {% csrf_token %}
-    {{form.as_p}}
-    <button> Entrar </button>
+    <div class='field'>
+        <label>usuario</label>
+        {{form.username}}
+        {% if form.username.errors %}
+          {% for error in  form.username.errors %}
+          <p>{{error}}</p>
+          {% endfor %}
+        {% endif %}
+    </div>
+
+     <div class='field'>
+        <label>senha</label>
+        {{form.password}}
+        {% if form.password.errors %}
+          {% for error in  form.password.errors %}
+          <p>{{error}}</p>
+          {% endfor %}
+        {% endif %}
+    </div>
+ 
+
+    <!-- Renderizar campos e erros específicos dos campos -->
+     {% comment %} {{ form.as_p }}  {% endcomment %}
+    <button>Entrar</button>
 </form>
 {% endblock conteudo %}
-

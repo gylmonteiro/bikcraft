@@ -5,7 +5,7 @@
 {% block conteudo %}
 <form method='POST' action='{% url "cadastra-usuario" %}'>
     {% csrf_token %}
-    {{form.as_p}}
+    {% comment %} {{form.as_p}} {% endcomment %}
     <button> Cadastrar </button>
 </form>
 {% endblock conteudo %}

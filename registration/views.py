@@ -16,20 +16,25 @@ def cadastrar_usuario(request):
     return render(request, 'cadastrar_usuario.html', {'form':form})
 
 def acessar(request):
-    
-    if request.method =='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        # Ou retorna Nonese não tiver usuario,ou retorna o usuario
 
-        if user:
-            login(request, user)
-            return redirect('pagina-inicial')
+    if request.method == 'POST':
+
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+        # username = request.POST.get("username")
+        # password = request.POST.get("password")
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect("pagina-inicial")
 
     
-    form = AuthenticationForm()
-    return render (request, 'acessar.html',  {'form': form})
+    else:
+        form = AuthenticationForm()
+    return render(request, 'acessar.html', {'form': form})
 
 
 def sair(request):
