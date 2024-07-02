@@ -1,31 +1,36 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.views.generic import View
 from .forms import BikeModelForm,LojaModelForm, VendedorModelForm , ContactForm, ContactFormSet
 from .models import Bike, Loja, Vendedor
 
 
 # Create your views here.
 def home(request):
-   
     return render(request, 'home.html')
 
-
 def cadastrar(request):
-
-    if request.method == 'POST':
-        bike_form = BikeModelForm(request.POST, request.FILES)
-        if bike_form.is_valid():
-            bike_form.save()
-            return redirect("listar-bikes")
+    user = request.user
+    if user.is_authenticated: # Se isso for True, executa até a linha 24
+        if request.method == 'POST':
+            bike_form = BikeModelForm(request.POST, request.FILES)
+            if bike_form.is_valid(): # -> se isso der errado, abaixo não executa
+                # Isso não é mais executado
+                bike_form.save()
+                return redirect("listar-bikes")
+        else:
+            bike_form = BikeModelForm()
+        return render(request, 'formulario_bike.html', {'form': bike_form})
+    # Se user não tiver auntenticado... Joga ele pra pagina inicial
     else:
-        bike_form = BikeModelForm()
-    return render(request, 'formulario_bike.html', {'form': bike_form})
-
+        return redirect("acessar")
 
 def listar_bikes(request):
     bikes = Bike.objects.all()
     return render (request, 'produtos.html', {'bikes': bikes})
 
 
+@login_required
 def cadastrar_loja(request):
 
     if request.method == 'POST':
@@ -49,7 +54,7 @@ def detalha_loja(request, id):
     loja = get_object_or_404(Loja, pk=id)
     return render(request, "detalhe_loja.html", {"loja": loja})
 
-
+@login_required
 def cadastrar_vendedor(request):
 
     if request.method == 'POST':

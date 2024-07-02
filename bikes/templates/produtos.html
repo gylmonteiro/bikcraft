@@ -7,21 +7,23 @@
 
 {% block conteudo %}
 <div class='container-produtos'>
+    <div class="row mt-4">
+        <form method='GET' action='{% url "listar-bikes" %}'>
+            <input type="text" name='search' class="form-control" id="search" placeholder="Pesquisar produtos...">
+        </form>
+        {% comment %} Inserir aqui o formulário para fazer a pesquisa por filtragem {% endcomment %}
+        
+    </div>
+    <a href='{% url "cadastra-bike" %}' class='btn btn-primary mt-3'>Cadastrar Produto</a>
     <div class="row">
            
-        </div>
-        <div class="row mt-4">
-            <div class="col-12">
-                <input type="text" class="form-control" id="search" placeholder="Pesquisar produtos...">
-            </div>
-        </div>
-
-        <a href='{% url "cadastra-bike" %}' class='btn btn-primary mt-3'>Cadastrar Produto</a>
-    {% for bike in bikes %}
+    </div>
+        
+        {% for bike in bikes %}
         <div class='produto-item'>
-    
+            
             <h2>{{bike.modelo}}</h2>
-           
+            
             <img class='foto' src='{{bike.foto.url}}'/>
             
             <p>{{bike.descricao}}</p>
@@ -33,7 +35,7 @@
             </ul> 
             
         </div>
-    {% endfor %}
+        {% endfor %}
         
 </div>
 {% endblock conteudo %}

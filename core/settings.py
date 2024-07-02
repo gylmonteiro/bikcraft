@@ -114,6 +114,12 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "templates/static"),) #Adicionar essa
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Media Files
+# Media Files
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+
+# Usando endereço | url absoluto
+# LOGIN_URL = '/registration/'
+
+LOGIN_URL = "acessar"

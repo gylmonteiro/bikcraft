@@ -37,11 +37,12 @@
           <p>{{error}}</p>
           {% endfor %}
         {% endif %}
-    </div>
+    </div> 
  
 
     <!-- Renderizar campos e erros específicos dos campos -->
-     {% comment %} {{ form.as_p }}  {% endcomment %}
+    
+    {% comment %} <p class='form'>{{ form.as_p }}</p>  {% endcomment %}
     <button>Entrar</button>
 </form>
 {% endblock conteudo %}
