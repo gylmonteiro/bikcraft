@@ -8,13 +8,12 @@
 
 
 {% block conteudo %}
-    <h2> Formulário de cadastro de vendedor </h2>
-    
-    <form method='POST' action='{% url "cadastra-vendedor"%}'>
+    <h2> Formulário de cadastro de loja </h2>
+    <form method='POST' action='{% url "atualizar-loja" loja.id %}'>
         {% csrf_token %}
         {{form.as_p}}
 
-        <button type='submit'>Cadastrar</button>
+        <button type='submit'>Atualizar</button>
 
     </form>
 

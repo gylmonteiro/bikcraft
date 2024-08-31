@@ -7,6 +7,18 @@
 {% block conteudo %}
 
 <h1> Sobre a loja </h1>
+{% comment %} <a href='{% url "atualizar-loja" loja.id %}'>Atualizar</a> {% endcomment %}
+<form method='GET' action='{% url "atualizar-loja" loja.id %}'>
+    {% csrf_token %}
+    <button type='submit'>Atualizar</button>
+</form>
+{% comment %} <a href='{% url "deletar-loja" loja.id %}'>Deletar</a> {% endcomment %}
+
+
+<form method='DELETE' action='{% url "deletar-loja" loja.id %}'>
+    {% csrf_token %}
+    <button type='submit'>Deletar</button>
+</form>
 
 <h2> Nome: {{loja.nome}} </h2>
 <p> CNPJ: {{loja.cnpj}}</p>

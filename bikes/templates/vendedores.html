@@ -31,8 +31,9 @@
                 <div class="card-body">
                     <h5 class="card-title">{{vendedor.nome}}</h5>
                     <p class="card-text">{{vendedor.cpf}}</p>
-                    <p class="card-text">{{vendedor.loja}}</p>
-                    
+                    <p class="card-text">{{vendedor.loja}}</p> 
+                    <a href='{% url "atualiza-vendedor" vendedor.id %}' class='btn btn-primary mt-3'>atualizar vendedor</a>
+
                 </div>
             </div>
         </div>

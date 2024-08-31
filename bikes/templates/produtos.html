@@ -9,18 +9,23 @@
 <div class='container-produtos'>
     <div class="row mt-4">
         <form method='GET' action='{% url "listar-bikes" %}'>
-            <input type="text" name='search' class="form-control" id="search" placeholder="Pesquisar produtos...">
+            <input type="text" name='buscar'  placeholder="Pesquisar produtos...">
         </form>
-        {% comment %} Inserir aqui o formulário para fazer a pesquisa por filtragem {% endcomment %}
+       
         
     </div>
     <a href='{% url "cadastra-bike" %}' class='btn btn-primary mt-3'>Cadastrar Produto</a>
+
     <div class="row">
            
     </div>
+        {% if message %}
+            <h1> {{message}} </h1>
+        {% endif %}
         
         {% for bike in bikes %}
         <div class='produto-item'>
+
             
             <h2>{{bike.modelo}}</h2>
             
@@ -33,9 +38,12 @@
                 <li> Loja: {{loja.nome}}</li>
                 {% endfor %}
             </ul> 
+            <a href='{% url "atualiza-bike" bike.id%}'>Atualizar</a><br>
+            <a href='{% url "deleta-bike" bike.id%}'>Deletar</a>
             
         </div>
         {% endfor %}
         
 </div>
+
 {% endblock conteudo %}
