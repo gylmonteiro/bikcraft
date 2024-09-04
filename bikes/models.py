@@ -4,7 +4,7 @@ from django.db import models
 class Bike(models.Model):
     modelo = models.CharField(max_length=30, verbose_name="Modelo da Bike")
     preco = models.FloatField(verbose_name='Preço')
-    descricao = models.TextField(verbose_name='Descrição')
+    descricao = models.TextField(verbose_name='Descrição', blank=True, null=True)
     foto = models.ImageField(upload_to='bikes/', blank=True, null=True)
 
     def __str__(self):
@@ -28,7 +28,6 @@ class Vendedor(models.Model):
     
     def __str__(self):
         return self.nome
-
 
 class BikeInventario(models.Model):
     numero_de_bikes = models.IntegerField()
